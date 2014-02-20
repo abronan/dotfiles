@@ -1,0 +1,67 @@
+*utf8: 1
+*faceSize: 10
+*jumpScroll: true
+*multiScroll: true
+*boldMode: false
+*scrollBar: false
+*cutNewline: false
+*scrollTtyOutput: false
+*scrollKey: true
+*cursorBlink: true
+*dynamicColors: true
+*saveLines: 5000
+*geometry: 125x45
+
+
+URxvt*termName: rxvt
+
+    ## borderless and no scrollbar
+    URxvt*scrollBar_right: false
+    URxvt*scrollBar: false
+    URxvt*borderLess: false
+
+    ## teh transparency stuff
+    URxvt*inheritPixmap: true
+    URxvt*tintColor: white
+    URxvt*shading: 40
+
+## geometry and font
+URxvt*geometry: 84×24
+
+#URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
+#URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+#URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
+#URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
+#URxvt*font: xft:terminus:pixelsize=15
+#URxvt*boldFont: xft:terminus:bold:pixelsize=15
+#URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
+#URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
+
+URxvt.letterSpace: 1
+
+    ## change default colors
+    URxvt*background: #000000
+    URxvt*foreground: #A8A8A8
+    URxvt*color0: #000000
+    URxvt*color1: #A80000
+    URxvt*color2: #00A800
+    URxvt*color3: #A85400
+    URxvt*color4: #0000A8
+    URxvt*color5: #A800A8
+    URxvt*color6: #00A8A8
+    URxvt*color7: #A8A8A8
+    URxvt*color8: #545054
+    URxvt*color9: #F85450
+    URxvt*color10: #50FC50
+    URxvt*color11: #F2FC50
+    URxvt*color12: #5054F8
+    URxvt*color13: #F854F8
+    URxvt*color14: #50FCF8
+    URxvt*color15: #F8FCF8
+
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: chrome
+URxvt.matcher.button: 2
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
