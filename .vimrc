@@ -53,6 +53,8 @@ call vundle#begin()
   " Completion
   "
   Plugin 'Valloric/YouCompleteMe'
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
 
   " }}}
   " vim-scripts repos {{{
@@ -276,4 +278,19 @@ filetype plugin indent on
 " }}}
 " Dash {{{
   map <Leader>d :Dash<CR>
+" }}}
+" UltiSnips {{{
+  let g:UltiSnipsExpandTrigger = "<nop>"
+  let g:ulti_expand_or_jump_res = 0
+  function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+      return snippet
+    else
+      return "\<CR>"
+    endif
+  endfunction
+  inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+  let g:ycm_key_list_select_completion = ['<TAB>']
+  let g:ycm_key_list_previous_completion = ['<S-TAB>']
 " }}}
