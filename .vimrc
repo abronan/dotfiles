@@ -1,62 +1,72 @@
-"
-"   .VIMRC dotfile
-"   
-"   @author:    abronan
-"   @updated:   Sa 13 Jul 2014
-"   @revision:  2
-
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle {{{
-  filetype off
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#rc()
+  Plugin 'gmarik/vundle'
 
-  " let Vundle manage Vundle
-  Bundle 'gmarik/vundle'
+  " github repos {{{
 
-  " Vundles
+  " Powerline
   "
-  " github repos
-  Bundle 'tpope/vim-fugitive'
-  Bundle 'tpope/vim-rails'
-  Bundle 'tpope/vim-haml'
-  Bundle 'tpope/vim-endwise'
-  Bundle 'tpope/vim-surround'
-  Bundle 'tpope/vim-ragtag'
-  Bundle 'tpope/vim-markdown'
-  Bundle 'tpope/vim-unimpaired'
-  Bundle 'scrooloose/nerdtree'
-  Bundle 'scrooloose/nerdcommenter'
-  Bundle 'scrooloose/syntastic'
-  Bundle 'gregsexton/gitv'
-  Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-  Bundle 'msanders/snipmate.vim'
-  Bundle 'ervandew/supertab'
-  Bundle 'tomtom/tlib_vim'
-  Bundle 'tomtom/tcomment_vim'
-  Bundle 'tomtom/tselectbuffer_vim'
-  Bundle 'vim-scripts/taglist.vim'
-  Bundle 'Townk/vim-autoclose'
-  Bundle 'trapd00r/x11colors.vim'
-  Bundle 'lilydjwg/colorizer'
-  Bundle 'zeis/vim-kolor'
-  Bundle 'fatih/vim-go'
-  Bundle 'shemerey/vim-project'
-  Bundle 'majutsushi/tagbar'
-  Bundle 'mileszs/ack.vim'
-  Bundle 'tomasr/molokai'
-  Bundle 'flazz/vim-colorschemes'
-  " Bundle 'Valloric/YouCompleteMe'
+  Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-  " vim-scripts repos
+  " General plugins
+  "
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-markdown'
+  Plugin 'tpope/vim-unimpaired'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'tomtom/tcomment_vim'
+  Plugin 'tomtom/tselectbuffer_vim'
+  Plugin 'Townk/vim-autoclose'
+  Plugin 'shemerey/vim-project'
+  Plugin 'majutsushi/tagbar'
 
-  " non github repos
+  " Tools and Documentation
+  "
+  Plugin 'mileszs/ack.vim'
+  Plugin 'rizzatti/dash.vim'
+  Plugin 'gregsexton/gitv'
+
+  " Syntax support
+  "
+  Plugin 'chase/vim-ansible-yaml'
+  Plugin 'ingydotnet/yaml-vim'
+
+  " Themes and colors
+  "
+  Plugin 'flazz/vim-colorschemes'
+  Plugin 'trapd00r/x11colors.vim'
+  Plugin 'lilydjwg/colorizer'
+  Plugin 'zeis/vim-kolor'
+
+  " Go Support
+  "
+  Plugin 'fatih/vim-go'
+
+  " Completion
+  "
+  Plugin 'Valloric/YouCompleteMe'
+
+  " }}}
+  " vim-scripts repos {{{
+  " }}}
+  " non github repos {{{
+  " }}}
 
 " }}}
+
+call vundle#end()
+filetype plugin indent on
+
 " General settings {{{
   filetype on
-  filetype plugin indent on
   syntax on
 
   set relativenumber
@@ -79,7 +89,7 @@ set nocompatible
 
   set backspace=2       " backspace over EOL etc.
 
-  set background=dark   " i prefer dark backgrounds
+  set background=dark
 
   set hidden            " buffer switching should be quick
   set confirm           " ask instead of just print errors
@@ -105,16 +115,16 @@ set nocompatible
   map <F4> <Esc>:TlistToggle<CR>
   map <F6> <Esc>:TagbarToggle<CR>
   " map <F7> <Esc>:CommandT<CR>
-   
+
   " Set text wrapping toggles
-  nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR> 
-   
+  nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
+
   " Set up retabbing on a source file
-  nmap <silent> <leader>rr :1,$retab<CR> 
-   
+  nmap <silent> <leader>rr :1,$retab<CR>
+
   " cd to the directory containing the file in the buffer
-  nmap <silent> <leader>cd :lcd %:h<CR> 
-   
+  nmap <silent> <leader>cd :lcd %:h<CR>
+
   " Make the directory that contains the file in the current buffer.
   " This is useful when you edit a file in a directory that doesn't
   " (yet) exist
@@ -129,9 +139,9 @@ set nocompatible
   nmap <M-k> :winc k<CR>
   nmap <M-l> :winc l<CR>
 " }}}
-" GUI or no GUI, that's the question {{{
+" GUI {{{
   if has('gui_running')
-    set guicursor+=a:blinkon0       " Cursor doesn't blink - it's annoying
+    set guicursor+=a:blinkon0       " Cursor doesn't blink
     set guioptions-=m               " No Menubar
     set guioptions-=T               " No Toolbar
     set guioptions-=l               " No Scrollbar left
@@ -141,10 +151,6 @@ set nocompatible
 
     set laststatus=2                " always show statusline
 
-    " set gfn=Pragmata\ 6.5
-    set gfn=Neep\ Medium\ Semi-Condensed\ 9
-    " set gfn=Mensch\ 7
-
     set lines=40                    " Height
     set columns=85                  " Width
 
@@ -153,10 +159,10 @@ set nocompatible
     let g:kolor_underlined=0                " Enable underline. Default: 0
     let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 
-    colorscheme Tomorrow-Night
+    colorscheme chance-of-storm
 
   else
-    colorscheme Tomorrow-Night-Bright
+    colorscheme chance-of-storm
   endif
 " }}}
 " Tabstops {{{
@@ -189,7 +195,7 @@ set nocompatible
   set ignorecase
 
   " Toggle that stupid highlight search
-  nmap <silent> ,n :set invhls<CR>:set hls?<CR> 
+  nmap <silent> ,n :set invhls<CR>:set hls?<CR>
 " }}}
 " Backup files {{{
   set nobackup
@@ -201,9 +207,6 @@ set nocompatible
   set wildmode=longest,full,list
 
   set ofu=syntaxcomplete#Complete
-" }}}
-" Snipmate {{{
-  imap <tab> <C-r>=TriggerSnippet()<CR>
 " }}}
 " NERDTree {{{
   map <F3> :NERDTreeToggle<CR>
@@ -218,28 +221,37 @@ set nocompatible
   set fillchars+=stl:\ ,stlnc:\
   set term=xterm-256color
   set termencoding=utf-8
-  
+
   "" MacVim specific
   if has("gui_running")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h13
+      set guifont=Inconsolata\ for\ Powerline:h15
     endif
   endif
 " }}}
+" {{{ Go Mappings
+  map <F7> :GoLint<CR>
+  map <F8> :GoVet<CR>
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <leader>c <Plug>(go-coverage)
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+  au FileType go nmap <Leader>s <Plug>(go-implements)
+  au FileType go nmap <Leader>i <Plug>(go-info)
+  au FileType go nmap <Leader>e <Plug>(go-rename)
+" }}}
 " Wrapping {{{
   set linebreak
-  set showbreak=↳\ 
+  set showbreak=↳\
 " toggle wrapping
   nmap <silent> <F12> :let &wrap = !&wrap<CR>
-" }}}
-" RagTag {{{
-  imap <M-O> <Esc>o
-  imap <C-J> <Down>
-  let g:ragtag_global_maps = 1
-
-  imap <C-Space> <C-X><Space>
-  imap <C-CR> <C-X><CR>
 " }}}
 " 'Bubbling' {{{
   nmap <C-up> [e
@@ -261,4 +273,7 @@ set nocompatible
   nmap <Space> @q
   " Map @ to + for more comfortable macros on DE kb layout
   nmap + @
+" }}}
+" Dash {{{
+  map <Leader>d :Dash<CR>
 " }}}
