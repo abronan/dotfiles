@@ -7,6 +7,7 @@ fi
 export SCALA_HOME=/usr/local/opt/scala/idea
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
+# Default editor
 export EDITOR=vim
 
 # Golang
@@ -25,7 +26,6 @@ export PATH=$PATH:$GOPATH/bin
 eval "$(direnv hook $0)"
 
 # Google Cloud SDK
-# The next line updates PATH for the Google Cloud SDK.
 source '/usr/local/opt/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
@@ -41,20 +41,41 @@ alias gd='git diff'
 alias gogo='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
-
 alias got='git '
 alias get='git '
 
 # Other aliases (project based)
 
-alias gomlv='cd ~/go/src/github.com/abronan/mileva'
-
 source ~/.zshresources/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshresources/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-# bind UP and DOWN arrow keys
+# History UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Z
 . `brew --prefix`/etc/profile.d/z.sh
+
+# SSH Agent
+
+SSH_ENV=$HOME/.ssh/environment
+   
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+   
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
