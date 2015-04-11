@@ -156,6 +156,9 @@ filetype plugin indent on
     set lines=40                    " Height
     set columns=85                  " Width
 
+    highlight ColorColumn ctermbg=magenta
+    call matchadd('ColorColumn', '\%101v', 120)
+
     let g:kolor_italic=1                    " Enable italic. Default: 1
     let g:kolor_bold=1                      " Enable bold. Default: 1
     let g:kolor_underlined=0                " Enable underline. Default: 0
@@ -217,7 +220,7 @@ filetype plugin indent on
   let NERDTreeShowBookmarks = 1
 " }}}
 " {{{ Powerline
-  set guifont=Inconsolata\ for\ Powerline:h13
+  set guifont=Inconsolata\ for\ Powerline:h15
   let g:Powerline_symbols = 'fancy'
   set encoding=utf-8
   set fillchars+=stl:\ ,stlnc:\
