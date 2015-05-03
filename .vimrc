@@ -27,6 +27,7 @@ call vundle#begin()
   Plugin 'Townk/vim-autoclose'
   Plugin 'shemerey/vim-project'
   Plugin 'majutsushi/tagbar'
+  Plugin 'airblade/vim-gitgutter'
 
   " Tools and Documentation
   "
@@ -185,8 +186,6 @@ filetype plugin indent on
 " Folds {{{
   set foldmethod=marker
   set foldcolumn=1
-  " au BufWinLeave * mkview
-  " au BufWinEnter * silent loadview
 " }}}
 " Pairings {{{
   set showmatch
@@ -219,8 +218,16 @@ filetype plugin indent on
   let NERDTreeChDirMode = 2
   let NERDTreeShowBookmarks = 1
 " }}}
+" Git Diff {{{
+  map <F9> :GitGutterToggle<CR>
+  map <F10> :GitGutterLineHighlightsToggle<CR>
+  highlight GitGutterAddLine guibg=#181d26
+  highlight GitGutterChangeLine guibg=#181828
+  highlight GitGutterDeleteLine guibg=#381c20
+  highlight GitGutterChangeDeleteLine guibg=#181818
+" }}}
 " {{{ Powerline
-  set guifont=Inconsolata\ for\ Powerline:h15
+  set guifont=Inconsolata\ for\ Powerline:h13
   let g:Powerline_symbols = 'fancy'
   set encoding=utf-8
   set fillchars+=stl:\ ,stlnc:\
@@ -231,7 +238,7 @@ filetype plugin indent on
   if has("gui_running")
     let s:uname = system("uname")
     if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h15
+      set guifont=Inconsolata\ for\ Powerline:h13
     endif
   endif
 " }}}
@@ -296,4 +303,8 @@ filetype plugin indent on
   inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
   let g:ycm_key_list_select_completion = ['<TAB>']
   let g:ycm_key_list_previous_completion = ['<S-TAB>']
+" }}}
+" Cursorline MacVim {{{ 
+  :hi clear CursorLine 
+  :hi CursorLine gui=underline guisp=#1d3950
 " }}}
