@@ -242,7 +242,9 @@ filetype plugin indent on
     endif
   endif
 " }}}
-" {{{ Go Mappings
+" {{{ Go Configs
+  " format with goimports instead of gofmt
+  let g:go_fmt_command = "goimports"
   map <F7> :GoLint<CR>
   map <F8> :GoVet<CR>
   au FileType go nmap <leader>r <Plug>(go-run)
