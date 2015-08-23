@@ -73,15 +73,15 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser    = "google-chrome-stable"
-browser2   = "firefox"
+browser   = "firefox"
+browser_alt    = "google-chrome-stable"
 fileman = "pcmanfm /home/abronan"
+screensaver = "xscreensaver-command --lock"
 cli_fileman = terminal .. " -e ranger "
 gui_editor = "gvim"
 graphics   = "gimp"
 musiplr   = terminal .. " -e ncmpcpp "
 mail = terminal .. " -e mutt "
-mail_gui = "thunderbird"
 irssi = terminal .. " -e irssi "
 irc = "pidgin"
 tasks = terminal .. " -e htop "
@@ -123,13 +123,9 @@ myaccessories = {
     { "Editor", gui_editor }
 }
 myinternet = {
-    { "Google Chrome", browser },
-    { "Firefox", browser2 },
+    { "Firefox", browser },
+    { "Google Chrome", browser_alt },
     { "IRC client", irc }
-}
-myoffice = {
-    { "Writer", "lowriter" },
-    { "Impress", "loimpress" }
 }
 mysystem = {
     { "Appearance", "lxappearance" },
@@ -143,16 +139,12 @@ mysystem = {
 }
 mymainmenu = awful.menu({ items = {
         { "File Manager", fileman },
-        { "Terminal", terminal },
+        { "Firefox", browser },
         { "VirtualBox", "virtualbox" },
-        { "Google Chrome", browser },
-        { "Thunderbird", mail_gui },
+        { "PlayOnLinux", "primusrun playonlinux" },
             { " ", nil, nil }, -- separator
-        { "Editors", myeditors },
         { "Internet", myinternet },
         { "Accessories", myaccessories },
-        { "Graphics", mygraphics },
-        { "Office", myoffice },
         { "System", mysystem, beautiful.awesome_icon },
             { " ", nil, nil }, -- separator
         { "Lock", screensaver }
@@ -525,6 +517,12 @@ globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function() os.execute("screenshot") end),
+
+    -- Suspend
+    awful.key({ modkey, "Shift" }, "#119", function() os.execute("systemctl suspend") end),
+
+    -- Screensaver
+    awful.key({ modkey, "Shift" }, "#118", function() os.execute("xscreensaver-command --lock") end),
 
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
