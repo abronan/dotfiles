@@ -12,7 +12,7 @@
 *saveLines: 5000
 *geometry: 125x45
 
-URxvt*termName: rxvt
+URxvt*termName: rxvt-256color
 
 ## borderless and no scrollbar
 URxvt*scrollBar_right: false
@@ -22,13 +22,13 @@ URxvt*borderLess: false
 ## teh transparency stuff
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
-URxvt*shading: 40
+URxvt*shading: 30
 
 ## geometry and font
 URxvt*geometry: 84×24
 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=16:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=16:antialias=true:hinting=true
 URxvt.letterSpace: 1
 
 ## change default colors
