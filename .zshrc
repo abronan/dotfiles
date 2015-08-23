@@ -3,36 +3,36 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-export SCALA_HOME=/usr/local/opt/scala/idea
-export ANDROID_HOME=/usr/local/opt/android-sdk
-
 # Default editor
 export EDITOR=vim
+export TERM=xterm-termite
 
 # Golang
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-launchctl setenv GOROOT /usr/local/opt/go/libexec
-launchctl setenv GOPATH /Users/abronan/go
-
-# Docker related stuff
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/abronan/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
-
 export PATH=$PATH:$GOPATH/bin
 
-eval "$(direnv hook $0)"
+# Store
+export ETCD_PATH="/usr/share/etcd"
+export ZK_PATH="/usr/share/zookeeper"
+export CONFIG="~/.config"
+export PATH=$PATH:$ZK_PATH/bin:$ETCD_PATH
+
+# Docker Experimental/Development Binary
+export DOCKER_REPOSITORY=$GOPATH/src/github.com/docker/docker
+export DOCKER_DEV=$DOCKER_REPOSITORY/bundles/latest/binary
+export DOCKER_EXPERIMENTAL=$HOME/devenv/docker-experimental
 
 # Google Cloud SDK
-source '/usr/local/opt/google-cloud-sdk/path.zsh.inc'
+export CLOUDSDK_PYTHON="/usr/bin/python2.7"
 
-# The next line enables bash completion for gcloud.
-source '/usr/local/opt/google-cloud-sdk/completion.zsh.inc'
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/abronan/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/abronan/google-cloud-sdk/completion.zsh.inc'
 
 # Git aliases
-
 alias gst='git status '
 alias ga='git add '
 alias gb='git branch '
@@ -44,8 +44,16 @@ alias gx='gitx --all'
 alias got='git '
 alias get='git '
 
-# Other aliases (project based)
+# Docker aliases
+alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay"
+alias ddev=$DOCKER_DEV/docker
+alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay --kv-store=consul:localhost:8500 &"
+alias dxp=$DOCKER_EXPERIMENTAL/docker-latest
+alias dps='docker ps -a'
+alias cclean='docker rm -f $(docker ps -aq)'
+alias iclean='docker rmi $(docker images -aq)'
 
+# Zsh
 source ~/.zshresources/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zshresources/zsh-history-substring-search/zsh-history-substring-search.zsh
 
@@ -54,12 +62,11 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Z
-. `brew --prefix`/etc/profile.d/z.sh
+. /usr/local/etc/profile.d/z.sh
 
 # SSH Agent
-
 SSH_ENV=$HOME/.ssh/environment
-   
+ 
 # start the ssh-agent
 function start_agent {
     echo "Initializing new SSH agent..."

@@ -165,10 +165,10 @@ filetype plugin indent on
     let g:kolor_underlined=0                " Enable underline. Default: 0
     let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 
-    colorscheme chance-of-storm
+    colorscheme Tomorrow-Night
 
   else
-    colorscheme chance-of-storm
+    colorscheme Tomorrow-Night
   endif
 " }}}
 " Tabstops {{{
@@ -227,20 +227,13 @@ filetype plugin indent on
   highlight GitGutterChangeDeleteLine guibg=#181818
 " }}}
 " {{{ Powerline
-  set guifont=Inconsolata\ for\ Powerline:h13
-  let g:Powerline_symbols = 'fancy'
+  set guifont=Terminus\ for\ Powerline:h16
+  let g:Powerline_symbols = 'unicode'
   set encoding=utf-8
+  set linespace=0
   set fillchars+=stl:\ ,stlnc:\
-  set term=xterm-256color
+  set term=rxvt-256color
   set termencoding=utf-8
-
-  "" MacVim specific
-  if has("gui_running")
-    let s:uname = system("uname")
-    if s:uname == "Darwin\n"
-      set guifont=Inconsolata\ for\ Powerline:h13
-    endif
-  endif
 " }}}
 " {{{ Go Configs
   " format with goimports instead of gofmt
@@ -287,9 +280,6 @@ filetype plugin indent on
   nmap <Space> @q
   " Map @ to + for more comfortable macros on DE kb layout
   nmap + @
-" }}}
-" Dash {{{
-  map <Leader>d :Dash<CR>
 " }}}
 " UltiSnips {{{
   let g:UltiSnipsExpandTrigger = "<nop>"

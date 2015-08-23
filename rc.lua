@@ -48,14 +48,14 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
-run_once("urxvtd -q -f -o")
+-- run_once("urxvtd -q -f -o")
 run_once("unclutter -idle 10")
-run_once("compton")
+run_once("syndaemon -i 0.6 -K -R")
 run_once("autocutsel -fork")
 run_once("autocutsel -selection PRIMARY -fork")
 run_once("wicd-client")
-run_once("dropboxd")
-run_once("skype")
+-- run_once("dropboxd")
+-- run_once("skype")
 -- }}}
 
 -- {{{ Variable definitions
@@ -68,13 +68,13 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/holo/theme.lua")
 -- common
 modkey     = "Mod4"
 altkey     = "Mod1"
-terminal   = "urxvtc" or "xterm"
+terminal   = "termite" or "urxvtc"
 editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
 browser    = "google-chrome-stable"
-browser2   = "chromium"
+browser2   = "firefox"
 fileman = "pcmanfm /home/abronan"
 cli_fileman = terminal .. " -e ranger "
 gui_editor = "gvim"
@@ -97,8 +97,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " TERMINAL ", " WEB ", " TWITCH ", " FILES ", " OTHER ", " DEV " },
-   layout = { layouts[1], layouts[3], layouts[2], layouts[2], layouts[4], layouts[3] }
+   names = { " TERM ", " WEB ", " FILES ", " OTHER ", " DEV ", " VM ", "♫•*¨*•.¸¸♪", "ᕙ(⇀‸↼‶)ᕗ" },
+   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[4], layouts[3], layouts[3], layouts[3] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -114,22 +114,18 @@ end
 -- }}}
 
 -- {{{ Menu
+-- mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
+--                               theme = { height = 16, width = 130 }})
+
 -- Create a launcher widget and a main menu
-myeditors = {
-    { "IntelliJ" , "intellij-idea-ultimate-edition" },
-    { "Smart Git" , "smartgithg.sh" }
-}
 myaccessories = {
     { "Archives", "7zFM" },
     { "Editor", gui_editor }
 }
 myinternet = {
     { "Google Chrome", browser },
-    { "Chromium", browser2 },
+    { "Firefox", browser2 },
     { "IRC client", irc }
-}
-mygraphics = {
-    { "Gimp", "gimp" }
 }
 myoffice = {
     { "Writer", "lowriter" },
@@ -351,7 +347,7 @@ networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
 
 -- Weather
-yawn = lain.widgets.yawn(123456)
+-- yawn = lain.widgets.yawn(123456)
 
 -- Separators
 first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
@@ -508,8 +504,8 @@ for s = 1, screen.count() do
     mybottomwibox[s]:set_widget(bottom_layout)
 
     -- Set proper backgrounds, instead of beautiful.bg_normal
-    mywibox[s]:set_bg(beautiful.topbar_path .. screen[mouse.screen].workarea.width .. ".png")
-    mybottomwibox[s]:set_bg("#242424")
+    -- mywibox[s]:set_bg(beautiful.topbar_path .. screen[mouse.screen].workarea.width .. ".png")
+    -- mybottomwibox[s]:set_bg("#242424")
 
     -- Create a borderbox above the bottomwibox
     lain.widgets.borderbox(mybottomwibox[s], s, { position = "top", color = "#0099CC" } )
@@ -622,7 +618,7 @@ globalkeys = awful.util.table.join(
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
+    -- awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     -- ALSA volume control
     awful.key({ altkey }, "Up",
