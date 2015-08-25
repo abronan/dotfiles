@@ -23,6 +23,10 @@ export DOCKER_REPOSITORY=$GOPATH/src/github.com/docker/docker
 export DOCKER_DEV=$DOCKER_REPOSITORY/bundles/latest/binary
 export DOCKER_EXPERIMENTAL=$HOME/devenv/docker-experimental
 
+# Other
+export FLB_PATH=$GOPATH/src/github.com/google/flatbuffers
+export PATH=$PATH:$FLB_PATH
+
 # Google Cloud SDK
 export CLOUDSDK_PYTHON="/usr/bin/python2.7"
 
