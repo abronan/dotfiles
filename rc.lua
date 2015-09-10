@@ -48,19 +48,14 @@ function run_once(cmd)
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
--- run_once("urxvtd -q -f -o")
 run_once("unclutter -idle 10")
-run_once("syndaemon -i 0.6 -K -R")
+run_once("syndaemon -i 0.4 -K -R")
 run_once("autocutsel -fork")
 run_once("autocutsel -selection PRIMARY -fork")
 run_once("wicd-client")
--- run_once("dropboxd")
--- run_once("skype")
 -- }}}
 
 -- {{{ Variable definitions
--- localization
--- os.setlocale(os.getenv("LANG"))
 
 -- beautiful init
 beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/holo/theme.lua")
@@ -76,6 +71,7 @@ editor_cmd = terminal .. " -e " .. editor
 browser   = "firefox"
 browser_alt    = "google-chrome-stable"
 fileman = "pcmanfm /home/abronan"
+markdown = "haroopad"
 screensaver = "xscreensaver-command --lock"
 cli_fileman = terminal .. " -e ranger "
 gui_editor = "gvim"
@@ -97,8 +93,8 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " TERM ", " WEB ", " FILES ", " OTHER ", " DEV ", " VM ", "♫•*¨*•.¸¸♪", "ᕙ(⇀‸↼‶)ᕗ" },
-   layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[4], layouts[3], layouts[3], layouts[3] }
+   names = { " TERM ", " DEV ", " TOOLS ", " WEB ", " FILES ", " VM ", "♫•*¨*•.¸¸♪", "ᕙ(⇀‸↼‶)ᕗ" },
+   layout = { layouts[2], layouts[4], layouts[2], layouts[2], layouts[2], layouts[3], layouts[3], layouts[3] }
 }
 for s = 1, screen.count() do
    tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -114,13 +110,15 @@ end
 -- }}}
 
 -- {{{ Menu
+
+-- Autogen menu
 -- mymainmenu = awful.menu.new({ items = require("menugen").build_menu(),
 --                               theme = { height = 16, width = 130 }})
 
 -- Create a launcher widget and a main menu
 myaccessories = {
-    { "Archives", "7zFM" },
-    { "Editor", gui_editor }
+    { "Editor", gui_editor },
+    { "Markdown", markdown }
 }
 myinternet = {
     { "Firefox", browser },
@@ -182,28 +180,6 @@ calendarwidget = wibox.widget.background()
 calendarwidget:set_widget(mytextcalendar)
 calendarwidget:set_bgimage(beautiful.widget_bg)
 lain.widgets.calendar:attach(calendarwidget, { fg = "#FFFFFF", position = "bottom_right" })
-
---[[ Mail IMAP check
--- commented because it needs to be set before use
-mailwidget = lain.widgets.imap({
-    timeout  = 180,
-    server   = "server",
-    mail     = "mail",
-    password = "keyring get mail",
-    settings = function()
-        mail_notification_preset.fg = "#FFFFFF"
-        mail  = ""
-        count = ""
-
-        if mailcount > 0 then
-            mail = "Mail "
-            count = mailcount .. " "
-        end
-
-        widget:set_markup(markup(blue, mail) .. markup("#FFFFFF", count))
-    end
-})
-]]
 
 -- MPD
 mpd_icon = wibox.widget.imagebox()
@@ -337,9 +313,6 @@ netwidget = lain.widgets.net({
 networkwidget = wibox.widget.background()
 networkwidget:set_widget(netwidget)
 networkwidget:set_bgimage(beautiful.widget_bg)
-
--- Weather
--- yawn = lain.widgets.yawn(123456)
 
 -- Separators
 first = wibox.widget.textbox('<span font="Tamsyn 4"> </span>')
@@ -616,7 +589,6 @@ globalkeys = awful.util.table.join(
 
     -- Widgets popups
     awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    -- awful.key({ altkey,           }, "w",      function () yawn.show(7) end),
 
     -- ALSA volume control
     awful.key({ altkey }, "Up",
@@ -761,27 +733,13 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
 	                   size_hints_honor = false } },
+
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
-    { rule = { class = "MPlayer" },
+    { rule = { class = "Wicd" },
           properties = { floating = true } },
 
-    { rule = { class = "Dwb" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { class = "Iron" },
-          properties = { tag = tags[1][1] } },
-
-    { rule = { instance = "plugin-container" },
-          properties = { tag = tags[1][1] } },
-
-	  { rule = { class = "Gimp" },
-     	    properties = { tag = tags[1][4] } },
-
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized_horizontal = true,
-                         maximized_vertical = true } },
 }
 -- }}}
 
