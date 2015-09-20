@@ -1,0 +1,77 @@
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = DejaVu Sans Mono for Powerline 14
+scrollback_lines = 10000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# "system", "on" or "off"
+cursor_blink = system
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# set size hints for the window
+#size_hints = false
+
+# emit escape sequences for other keys modified by Control
+#modify_other_keys = false
+
+[colors]
+#background = #000000
+background = rgba(16, 16, 16, 0.7)
+foreground = #e6e6e6
+foreground_bold = #ffffff
+cursor =  #ffaa3e
+highlight = #585858
+
+# Black
+color0 = #0d1926
+color8 = #585858
+
+# Red
+color1 = #c0392b
+color9 = #e74c3c
+
+# Green
+color2 = #3aaf75
+color10 = #72d5a3
+
+# Yellow
+color3 = #ffaa3e
+color11 = #efdd6f
+
+# Blue
+color4 = #2980b9
+color12 = #3498db
+
+# Magenta
+color5 = #8e44ad
+color13 = #9b59b6
+
+# Cyan
+color6 = #00afff
+color14 = #4DC5DC
+
+# White
+color7 = #b3b3b3
+color15 = #e6e6e6
+
+
+[hints]
+font = DejaVu Sans Mono for Powerline 14
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s
