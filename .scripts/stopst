@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pkill consul
+pkill etcd
+pkill -f zookeeper

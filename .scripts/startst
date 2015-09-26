@@ -1,0 +1,5 @@
+#!/bin/bash
+
+nohup etcd --listen-client-urls 'http://0.0.0.0:4001' --advertise-client-urls 'http://localhost:4001' &
+nohup consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -config-file=/home/abronan/.config/consul/config.json &
+zkServer.sh start
