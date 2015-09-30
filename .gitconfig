@@ -10,7 +10,7 @@
   ec = config --global -e
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
   cob = checkout -b
-  cm = !git add -A && git commit -s -m
+  cm = !git add -A && git commit -s
   save = !git add -A && git commit -m 'SAVEPOINT'
   wip = !git add -u && git commit -m "WIP" 
   undo = reset HEAD~1 --mixed
