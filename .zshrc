@@ -49,9 +49,9 @@ alias got='git '
 alias get='git '
 
 # Docker aliases
-alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay"
+alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
 alias ddev=$DOCKER_DEV/docker
-alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay --kv-store=consul:localhost:8500 &"
+alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
 alias dxp=$DOCKER_EXPERIMENTAL/docker-latest
 alias dps='docker ps -a'
 alias cclean='docker rm -f $(docker ps -aq)'
