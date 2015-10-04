@@ -165,10 +165,10 @@ filetype plugin indent on
     let g:kolor_underlined=0                " Enable underline. Default: 0
     let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 
-    colorscheme Tomorrow-Night
+    colorscheme jellybeans
 
   else
-    colorscheme Tomorrow-Night
+    colorscheme jellybeans
   endif
 " }}}
 " Tabstops {{{
@@ -266,10 +266,6 @@ filetype plugin indent on
   vmap <C-up> [egv
   vmap <C-down> ]egv
 " }}}
-" Formatting with Par (gqip) {{{
-  set formatprg=par\ -req
-  nmap <F9> gqip
-" }}}
 " Pasting {{{
   set paste
   nnoremap p ]p
@@ -295,8 +291,4 @@ filetype plugin indent on
   inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
   let g:ycm_key_list_select_completion = ['<TAB>']
   let g:ycm_key_list_previous_completion = ['<S-TAB>']
-" }}}
-" Cursorline MacVim {{{ 
-  :hi clear CursorLine 
-  :hi CursorLine gui=underline guisp=#1d3950
 " }}}
