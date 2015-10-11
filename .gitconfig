@@ -1,10 +1,10 @@
 [user]
-	email = abronan@docker.com
-	name = Alexandre Beslic
+  email = abronan@docker.com
+  name = Alexandre Beslic
 [filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
 [alias]
   co = checkout
   ec = config --global -e
