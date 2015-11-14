@@ -52,8 +52,8 @@ alias get='git '
 alias curl='noglob curl'
 
 # Docker aliases
-alias dswarm='ddev --tlsverify --tlscacert=.docker/ca.pem --tlscert=.docker/localCRT.pem --tlskey=.docker/localKEY.pem -H node01:4000'
-alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
+alias dswarm='ddev --tlsverify --tlscacert=.docker/ca.pem --tlscert=.docker/cert.pem --tlskey=.docker/key.pem -H node01:4000'
+alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 --cluster-advertise=wlp3s0:2375 &"
 alias ddev=$DOCKER_DEV/docker
 alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
 alias dxp=$DOCKER_EXPERIMENTAL/docker-latest
@@ -94,3 +94,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+# OPAM configuration
+. /home/abronan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

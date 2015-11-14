@@ -2,4 +2,5 @@
 
 pkill consul
 pkill etcd
+pkill irmin
 pkill -f zookeeper
