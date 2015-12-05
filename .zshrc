@@ -4,8 +4,10 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Default editor
-export EDITOR=vim
-export TERM=xterm-termite
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
+export TERM=screen-256color-bce
+export XDG_CONFIG_HOME="~/.config"
 
 # Golang
 export GOPATH=$HOME/go
@@ -36,6 +38,9 @@ source '/home/abronan/google-cloud-sdk/path.zsh.inc'
 # The next line enables shell command completion for gcloud.
 source '/home/abronan/google-cloud-sdk/completion.zsh.inc'
 
+# MPD daemon start
+[ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf
+
 # Git aliases
 alias gst='git status '
 alias ga='git add '
@@ -52,8 +57,8 @@ alias get='git '
 alias curl='noglob curl'
 
 # Docker aliases
-alias dswarm='ddev --tlsverify --tlscacert=.docker/ca.pem --tlscert=.docker/cert.pem --tlskey=.docker/key.pem -H node01:4000'
-alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 --cluster-advertise=wlp3s0:2375 &"
+alias dswarm='ddev --tlsverify --tlscacert=/home/abronan/.docker/ca.pem --tlscert=/home/abronan/.docker/cert.pem --tlskey=/home/abronan/.docker/key.pem -H node01:4000'
+alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay --exec-opt native.cgroupdriver=cgroupfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 --cluster-advertise=127.0.0.1:2375 &"
 alias ddev=$DOCKER_DEV/docker
 alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
 alias dxp=$DOCKER_EXPERIMENTAL/docker-latest

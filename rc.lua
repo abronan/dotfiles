@@ -68,8 +68,7 @@ editor     = os.getenv("EDITOR") or "nano" or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
 -- user defined
-browser   = "firefox"
-browser_alt    = "google-chrome-stable"
+browser = "google-chrome-stable"
 fileman = "pcmanfm /home/abronan"
 markdown = "haroopad"
 screensaver = "xscreensaver-command --lock"
@@ -93,7 +92,7 @@ local layouts = {
 
 -- {{{ Tags
 tags = {
-   names = { " TERM ", " DEV ", " TOOLS ", " WEB ", " FILES ", " VM ", "♫•*¨*•.¸¸♪", "ᕙ(⇀‸↼‶)ᕗ" },
+   names = { " TERM ", " DEV ", " WEB ", " TOOLS ", " FILES ", " VM ", "♫•*¨*•.¸¸♪", "ᕙ(⇀‸↼‶)ᕗ" },
    layout = { layouts[2], layouts[4], layouts[2], layouts[2], layouts[2], layouts[3], layouts[3], layouts[3] }
 }
 for s = 1, screen.count() do
@@ -121,8 +120,7 @@ myaccessories = {
     { "Markdown", markdown }
 }
 myinternet = {
-    { "Firefox", browser },
-    { "Google Chrome", browser_alt },
+    { "Google Chrome", browser },
     { "IRC client", irc }
 }
 mysystem = {
@@ -137,9 +135,8 @@ mysystem = {
 }
 mymainmenu = awful.menu({ items = {
         { "File Manager", fileman },
-        { "Firefox", browser },
+        { "Google Chrome", browser },
         { "VirtualBox", "virtualbox" },
-        { "PlayOnLinux", "primusrun playonlinux" },
             { " ", nil, nil }, -- separator
         { "Internet", myinternet },
         { "Accessories", myaccessories },
@@ -491,11 +488,14 @@ globalkeys = awful.util.table.join(
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function() os.execute("screenshot") end),
 
-    -- Suspend
+    -- Suspend - Del Key
     awful.key({ modkey, "Shift" }, "#119", function() os.execute("systemctl suspend") end),
 
-    -- Screensaver
+    -- Screensaver - Insert Key
     awful.key({ modkey, "Shift" }, "#118", function() os.execute("xscreensaver-command --lock") end),
+
+    -- Awesome restart
+    awful.key({ modkey, "Shift" }, "F12", function() awesome.restart() end),
 
     -- Tag browsing
     awful.key({ modkey }, "Left",   awful.tag.viewprev       ),
@@ -615,22 +615,22 @@ globalkeys = awful.util.table.join(
     -- MPD control
     awful.key({ altkey, "Control" }, "Up",
         function ()
-            awful.util.spawn_with_shell("mpc toggle || ncmpcpp toggle || ncmpc toggle || pms toggle")
+            awful.util.spawn_with_shell("mpc toggle")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Down",
         function ()
-            awful.util.spawn_with_shell("mpc stop || ncmpcpp stop || ncmpc stop || pms stop")
+            awful.util.spawn_with_shell("mpc stop")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Left",
         function ()
-            awful.util.spawn_with_shell("mpc prev || ncmpcpp prev || ncmpc prev || pms prev")
+            awful.util.spawn_with_shell("mpc prev")
             mpdwidget.update()
         end),
     awful.key({ altkey, "Control" }, "Right",
         function ()
-            awful.util.spawn_with_shell("mpc next || ncmpcpp next || ncmpc next || pms next")
+            awful.util.spawn_with_shell("mpc next")
             mpdwidget.update()
         end),
 
