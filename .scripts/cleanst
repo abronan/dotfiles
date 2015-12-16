@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -rf /tmp/default.etcd
+rm -rf /tmp/consul
+rm -rf /tmp/irmin
+rm -rf /tmp/zookeeper

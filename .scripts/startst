@@ -1,6 +1,6 @@
 #!/bin/bash
 
-nohup etcd --listen-client-urls 'http://0.0.0.0:4001' --advertise-client-urls 'http://localhost:4001' &
-nohup consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -config-file=/home/abronan/.config/consul/config.json &
+nohup etcd --data-dir=/tmp/default.etcd --listen-client-urls 'http://0.0.0.0:4001' --advertise-client-urls 'http://localhost:4001' &
+nohup consul agent -server -bootstrap -advertise=127.0.0.1 -data-dir /tmp/consul -config-file=/home/abronan/.config/consul/config.json &
 nohup irmin init -d -v --root /tmp/irmin/base -a http://:6744 &
 zkServer.sh start
