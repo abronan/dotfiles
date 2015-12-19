@@ -51,6 +51,10 @@ call vundle#begin()
   "
   Plugin 'fatih/vim-go'
 
+  " Rust Support
+  "
+  Plugin 'rust-lang/rust.vim'
+
   " Completion
   "
   Plugin 'Valloric/YouCompleteMe'
@@ -253,6 +257,9 @@ filetype plugin indent on
   au FileType go nmap <Leader>s <Plug>(go-implements)
   au FileType go nmap <Leader>i <Plug>(go-info)
   au FileType go nmap <Leader>e <Plug>(go-rename)
+" }}}
+" {{{ Rust Configs
+  let g:rustfmt_autosave = 1
 " }}}
 " Wrapping {{{
   set linebreak

@@ -7,12 +7,15 @@ fi
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export TERM=screen-256color-bce
-export XDG_CONFIG_HOME="~/.config"
 
 # Golang
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
+
+# Rust
+export CARGO=/home/abronan/.cargo
+export PATH=$PATH:$CARGO/bin
 
 # Store
 export ETCD_PATH="/usr/share/etcd"
