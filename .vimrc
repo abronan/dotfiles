@@ -54,6 +54,7 @@ call vundle#begin()
   " Rust Support
   "
   Plugin 'rust-lang/rust.vim'
+  Plugin 'racer-rust/vim-racer'
 
   " Completion
   "
@@ -260,6 +261,8 @@ filetype plugin indent on
 " }}}
 " {{{ Rust Configs
   let g:rustfmt_autosave = 1
+  let g:racer_cmd = "/home/abronan/.cargo/bin/racer"
+  let $RUST_SRC_PATH="/usr/src/rust/src/"
 " }}}
 " Wrapping {{{
   set linebreak
