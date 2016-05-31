@@ -25,14 +25,13 @@ call vundle#begin()
   Plugin 'tomtom/tcomment_vim'
   Plugin 'tomtom/tselectbuffer_vim'
   Plugin 'Townk/vim-autoclose'
-  Plugin 'shemerey/vim-project'
   Plugin 'majutsushi/tagbar'
   Plugin 'airblade/vim-gitgutter'
+  Plugin 'wincent/command-t'
 
   " Tools and Documentation
   "
   Plugin 'mileszs/ack.vim'
-  Plugin 'rizzatti/dash.vim'
   Plugin 'gregsexton/gitv'
 
   " Syntax support
@@ -111,18 +110,13 @@ filetype plugin indent on
   let maplocalleader=","
 " }}}
 " General Keybinds {{{
-
-  " Set MapLeader
-  let mapleader = ","
-
   " Delete previous word with C-BS
   imap <C-BS> <C-W>
 
   " Toggle Buffer Selection and list Tag Lists
   map <F2> <Esc>:TSelectBuffer<CR>
-  map <F4> <Esc>:TlistToggle<CR>
+  map <F4> <Esc>:CommandT<CR>
   map <F6> <Esc>:TagbarToggle<CR>
-  " map <F7> <Esc>:CommandT<CR>
 
   " Set text wrapping toggles
   nmap <silent> <leader>w :set invwrap<CR>:set wrap?<CR>
