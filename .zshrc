@@ -15,7 +15,8 @@ export PATH=$PATH:$GOPATH/bin
 
 # Rust
 export CARGO=/home/abronan/.cargo
-export PATH=$PATH:$CARGO/bin
+export RUST_SRC_PATH=/usr/src/rust/src
+export PATH=$PATH:$CARGO/bin:$RUST_SRC_PATH
 
 # Store
 export ETCD_PATH="/usr/share/etcd"
@@ -24,9 +25,10 @@ export CONFIG="~/.config"
 export PATH=$PATH:$ZK_PATH/bin:$ETCD_PATH
 
 # Docker Experimental/Development Binary
+export SWARM_REPOSITORY=$GOPATH/src/github.com/docker/swarm
 export DOCKER_REPOSITORY=$GOPATH/src/github.com/docker/docker
-export DOCKER_DEV=$DOCKER_REPOSITORY/bundles/latest/binary
-export DOCKER_EXPERIMENTAL=$HOME/devenv/docker-experimental
+export DOCKER_DEV=$DOCKER_REPOSITORY/bundles/latest/binary-daemon
+export PATH=$PATH:$DOCKER_DEV
 
 # Other
 export FLB_PATH=$GOPATH/src/github.com/google/flatbuffers
@@ -63,8 +65,6 @@ alias curl='noglob curl'
 alias dswarm='ddev --tlsverify --tlscacert=/home/abronan/.docker/ca.pem --tlscert=/home/abronan/.docker/cert.pem --tlskey=/home/abronan/.docker/key.pem -H node01:4000'
 alias ddevd="sudo nohup ${DOCKER_DEV}/docker daemon -s overlay --exec-opt native.cgroupdriver=cgroupfs -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 --cluster-advertise=127.0.0.1:2375 &"
 alias ddev=$DOCKER_DEV/docker
-alias dxpd="sudo nohup ${DOCKER_EXPERIMENTAL}/docker-latest daemon -s overlay -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --cluster-store=consul://localhost:8500 &"
-alias dxp=$DOCKER_EXPERIMENTAL/docker-latest
 alias dps='docker ps -a'
 alias cclean='docker rm -f $(docker ps -aq)'
 alias iclean='docker rmi $(docker images -aq)'
