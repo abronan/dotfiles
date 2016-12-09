@@ -1,0 +1,28 @@
+{
+    // Editor
+    "editor.fontFamily": "Hasklig",
+    "editor.fontWeight": "normal",
+    "editor.fontSize": 11,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorStyle": "line",
+    "editor.renderWhitespace": "none",
+    "editor.renderIndentGuides": true,
+
+    // Window
+    "window.zoomLevel": 0,
+
+    // Workbench
+    "workbench.sideBar.location": "left",
+
+    // Telemetry
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+
+    // Extensions
+    "extensions.autoUpdate": true,
+
+    // Rusty Code
+    "rust.formatOnSave": false,
+    "rust.checkOnSave": true,
+    "rust.useNewErrorFormat": true
+}
