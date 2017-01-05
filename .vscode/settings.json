@@ -22,7 +22,9 @@
     "extensions.autoUpdate": true,
 
     // Rusty Code
+    "rust.features": ["clippy"],
     "rust.formatOnSave": false,
     "rust.checkOnSave": true,
-    "rust.useNewErrorFormat": true
+    "rust.useNewErrorFormat": true,
+    "vsicons.dontShowNewVersionMessage": true
 }
