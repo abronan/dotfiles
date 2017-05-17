@@ -8,11 +8,12 @@ rc.lua is based on the **powerarrow** theme from
 
 Needs *termite* as well as other packages and fonts (see rc.lua).
 
-###Required fonts
+### Required fonts
 
 - [Hasklig](https://github.com/i-tu/Hasklig/)
 - [DejaVu Sans Mono for Powerline](https://github.com/powerline/fonts)
 
-###Screen
+### Screen
 
 ![Desktop Screen](screen.png)
+
