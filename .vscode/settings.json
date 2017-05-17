@@ -1,18 +1,23 @@
+// Place your settings in this file to overwrite the default settings
 {
     // Editor
-    "editor.fontFamily": "Hasklig",
+    "editor.fontFamily": "Hasklig Medium",
     "editor.fontWeight": "normal",
-    "editor.fontSize": 11,
+    "editor.fontSize": 14,
     "editor.cursorBlinking": "phase",
     "editor.cursorStyle": "line",
     "editor.renderWhitespace": "none",
-    "editor.renderIndentGuides": true,
+    "editor.renderIndentGuides": false,
+    "editor.formatOnSave": true,
 
     // Window
     "window.zoomLevel": 0,
+    "window.restoreFullscreen": false,
 
     // Workbench
     "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "workbench.activityBar.visible": true,
 
     // Telemetry
     "telemetry.enableTelemetry": false,
@@ -22,9 +27,11 @@
     "extensions.autoUpdate": true,
 
     // Rusty Code
-    "rust.features": ["clippy"],
-    "rust.formatOnSave": false,
-    "rust.checkOnSave": true,
-    "rust.useNewErrorFormat": true,
-    "vsicons.dontShowNewVersionMessage": true
+    "rust.showOutput": false,
+    "rust.actionOnSave": "check",
+
+    // VS icons
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.colorTheme": "Kary Foundation － Dark",
+    "workbench.iconTheme": "vscode-icons"
 }

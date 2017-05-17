@@ -8,11 +8,11 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = DejaVu Sans Mono for Powerline 14
+font = DejaVu Sans Mono for Powerline 11
 scrollback_lines = 10000
 search_wrap = true
-#icon_name = terminal
-#geometry = 640x480
+# icon_name = terminal
+# geometry = 640x480
 
 # "system", "on" or "off"
 cursor_blink = system
@@ -21,14 +21,13 @@ cursor_blink = system
 cursor_shape = block
 
 # set size hints for the window
-#size_hints = false
+# size_hints = false
 
 # emit escape sequences for other keys modified by Control
-#modify_other_keys = false
+# modify_other_keys = false
 
 [colors]
-#background = #000000
-background = rgba(16, 16, 16, 0.7)
+background = rgba(16, 16, 16, 0.9)
 foreground = #e6e6e6
 foreground_bold = #ffffff
 cursor =  #ffaa3e
@@ -69,9 +68,9 @@ color15 = #e6e6e6
 
 [hints]
 font = DejaVu Sans Mono for Powerline 14
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+# padding = 2
+# border = #3f3f3f
+# border_width = 0.5
+# roundness = 2.0
 
 # vim: ft=dosini cms=#%s
