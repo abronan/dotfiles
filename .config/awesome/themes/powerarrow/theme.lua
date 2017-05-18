@@ -111,7 +111,7 @@ theme.cal = lain.widget.calendar({
     --cal = "cal --color=always",
     attach_to = { binclock.widget },
     notification_preset = {
-        font = "xos4 Terminus 10",
+        font = "Hasklig Medium 10",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -150,7 +150,7 @@ local mail = lain.widget.imap({
 -- ALSA volume
 theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
-    notification_preset = { font = "xos4 Terminus 10", fg = theme.fg_normal },
+    notification_preset = { font = "Hasklig Medium 10", fg = theme.fg_normal },
 })
 
 -- MPD
@@ -217,7 +217,7 @@ local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 theme.fs = lain.widget.fs({
     options  = "--exclude-type=tmpfs",
-    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "xos4 Terminus 10" },
+    notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "Hasklig Medium 10" },
     settings = function()
         widget:set_markup(markup.font(theme.font, " " .. fs_now.available_gb .. "GB "))
     end
