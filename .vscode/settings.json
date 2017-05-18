@@ -10,6 +10,9 @@
     "editor.renderIndentGuides": false,
     "editor.formatOnSave": true,
 
+    // Updates
+    "update.channel": "none",
+
     // Window
     "window.zoomLevel": 0,
     "window.restoreFullscreen": false,
@@ -32,6 +35,6 @@
 
     // VS icons
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.colorTheme": "Kary Foundation － Dark",
+    "workbench.colorTheme": "Kary － Dark",
     "workbench.iconTheme": "vscode-icons"
 }
