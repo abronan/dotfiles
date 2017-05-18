@@ -8,42 +8,16 @@ export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
 export TERM=screen-256color-bce
 
-# Golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
-
 # Rust
 export CARGO=/home/abronan/.cargo
-export RUST_SRC_PATH=/usr/src/rust/src
-export PATH=$PATH:$CARGO/bin:$RUST_SRC_PATH
+export PATH=$PATH:$CARGO/bin
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export PATH=$PATH:$RUST_SRC_PATH
 
-# Store
-export ETCD_PATH="/usr/share/etcd"
-export ZK_PATH="/usr/share/zookeeper"
-export CONFIG="~/.config"
-export PATH=$PATH:$ZK_PATH/bin:$ETCD_PATH
-
-# Docker Experimental/Development Binary
-export SWARM_REPOSITORY=$GOPATH/src/github.com/docker/swarm
-export SWARMKIT_REPOSITORY=$GOPATH/src/github.com/docker/swarmkit
-export SWARMKIT_DEV=$SWARMKIT_REPOSITORY/bin
-export DOCKER_REPOSITORY=$GOPATH/src/github.com/docker/docker
-export DOCKER_DEV=$DOCKER_REPOSITORY/bundles/latest/binary-daemon
-export PATH=$PATH:$DOCKER_DEV:$SWARMKIT_DEV
-
-# Other
-export FLB_PATH=$GOPATH/src/github.com/google/flatbuffers
-export PATH=$PATH:$FLB_PATH
-
-# Google Cloud SDK
-export CLOUDSDK_PYTHON="/usr/bin/python2.7"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/abronan/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/home/abronan/google-cloud-sdk/completion.zsh.inc'
+# Project specific
+export MANTISSA_BIN=/home/abronan/devenv/mantissa/target/debug
+export PATH=$PATH:$MANTISSA_BIN
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/usr/local/lib"
 
 # MPD daemon start
 [ ! -s ~/.config/mpd/pid ] && mpd ~/.config/mpd/mpd.conf
@@ -64,10 +38,6 @@ alias get='git '
 alias curl='noglob curl'
 
 # Docker aliases
-alias dswarm='ddev --tlsverify --tlscacert=/home/abronan/.docker/ca.pem --tlscert=/home/abronan/.docker/cert.pem --tlskey=/home/abronan/.docker/key.pem -H node01:4000'
-alias ddev=$DOCKER_DEV/dockerd
-alias ddevd="sudo nohup ${DOCKER_DEV}/dockerd -s overlay &"
-alias dinit="docker swarm init"
 alias dps='docker ps -a'
 alias cclean='docker rm -f $(docker ps -aq)'
 alias iclean='docker rmi $(docker images -aq)'
@@ -105,6 +75,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-
-# OPAM configuration
-. /home/abronan/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
