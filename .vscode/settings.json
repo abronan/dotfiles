@@ -3,12 +3,14 @@
     // Editor
     "editor.fontFamily": "Hasklig Medium",
     "editor.fontWeight": "normal",
-    "editor.fontSize": 14,
+    "editor.fontSize": 13,
     "editor.cursorBlinking": "phase",
     "editor.cursorStyle": "line",
     "editor.renderWhitespace": "none",
     "editor.renderIndentGuides": false,
     "editor.formatOnSave": true,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
 
     // Updates
     "update.channel": "none",
@@ -29,12 +31,17 @@
     // Extensions
     "extensions.autoUpdate": true,
 
-    // Rusty Code
+    // Rust Plugin
     "rust.showOutput": false,
     "rust.actionOnSave": "check",
 
     // VS icons
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.colorTheme": "Kary － Dark",
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#1A1A1A",
+        "statusBar.noFolderBackground": "#0A0A0D",
+        "statusBar.debuggingBackground": "#5f5f5f"
+    }
 }
