@@ -67,11 +67,11 @@ local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "termite" or "urxvtc"
 local editor       = os.getenv("EDITOR") or "nano" or "vi"
-local gui_editor   = "gvim"
+local gui_editor   = "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "cli", "dev", "web", "file", "tools" }
+awful.util.tagnames = { "cli", "dev", "web", "file", "other" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -566,12 +566,21 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false } },
 
-    -- Set Firefox to always map on the first tag on screen 1.
+    -- Set Firefox to always map on the third tag on screen 1.
     { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = screen[1].tags[1] } },
+      properties = { screen = 1, tag = screen[1].tags[3] } },
 
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized = true } },
+    -- Set VSCode to always map on the second tag on screen 1.
+    { rule = { class = "Code" },
+      properties = { screen = 1, tag = screen[1].tags[2] } },
+
+    -- Set Scrivener to always map on the fifth tag on screen 1.
+    { rule = { class = "Scrivener" },
+      properties = { screen = 1, tag = screen[1].tags[5] } },
+
+    -- Gimp
+    -- { rule = { class = "Gimp", role = "gimp-image-window" },
+    --   properties = { maximized = true } },
 }
 -- }}}
 
