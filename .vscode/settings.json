@@ -1,9 +1,9 @@
 // Place your settings in this file to overwrite the default settings
 {
     // Editor
-    "editor.fontFamily": "Hasklig Medium",
+    "editor.fontFamily": "Hasklig",
     "editor.fontWeight": "normal",
-    "editor.fontSize": 13,
+    "editor.fontSize": 14,
     "editor.cursorBlinking": "phase",
     "editor.cursorStyle": "line",
     "editor.renderWhitespace": "none",
@@ -11,39 +11,32 @@
     "editor.formatOnSave": true,
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": false,
-
+    "editor.fontLigatures": true,
     // Updates
     "update.channel": "none",
-
     // Window
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 0.5,
     "window.restoreFullscreen": false,
-
     // Workbench
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
-    "workbench.activityBar.visible": true,
-
+    "workbench.activityBar.visible": false,
     // Telemetry
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-
     // Extensions
     "extensions.autoUpdate": true,
-
-    // Rust Plugin
-    "rust.showOutput": false,
+    // Rusty Code
     "rust.actionOnSave": "check",
+    "rust.showOutput": false,
     "rust.forceLegacyMode": true,
-
     // Integrated Terminal
     "terminal.integrated.fontFamily": "Hasklig Medium",
     "terminal.integrated.fontLigatures": true,
     "terminal.integrated.fontSize": 13,
-
     // VS icons
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.colorTheme": "Kary － Dark",
+    "workbench.colorTheme": "GitHub Bold Theme",
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorCustomizations": {
         "statusBar.background": "#1A1A1A",
