@@ -34,6 +34,12 @@
     // Rust Plugin
     "rust.showOutput": false,
     "rust.actionOnSave": "check",
+    "rust.forceLegacyMode": true,
+
+    // Integrated Terminal
+    "terminal.integrated.fontFamily": "Hasklig Medium",
+    "terminal.integrated.fontLigatures": true,
+    "terminal.integrated.fontSize": 13,
 
     // VS icons
     "vsicons.dontShowNewVersionMessage": true,
