@@ -179,7 +179,8 @@ awful.util.mymainmenu = freedesktop.menu.build({
     after = {
         { "Open terminal", terminal },
         -- other triads can be put here
-    }
+    },
+		skip_items = { "Avahi", "urxvt", "compton", "ranger" }
 })
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 -- }}}
@@ -576,6 +577,10 @@ awful.rules.rules = {
 
     -- Set Scrivener to always map on the fifth tag on screen 1.
     { rule = { class = "Scrivener" },
+      properties = { screen = 1, tag = screen[1].tags[5] } },
+
+    -- Set Haroopad to always map on the fifth tag on screen 1.
+    { rule = { class = "Haroopad" },
       properties = { screen = 1, tag = screen[1].tags[5] } },
 
     -- Gimp
