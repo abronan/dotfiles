@@ -19,17 +19,17 @@ URxvt*scrollBar_right: false
 URxvt*scrollBar: false
 URxvt*borderLess: false
 
-## teh transparency stuff
+## the transparency stuff
 URxvt*inheritPixmap: true
 URxvt*tintColor: white
-URxvt*shading: 30
+URxvt*shading: 20
 
 ## geometry and font
 URxvt*geometry: 84×24
 
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=16:antialias=true:hinting=true
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=16:antialias=true:hinting=true
-URxvt.letterSpace: 1
+URxvt*font: xft:Hasklig Medium:pixelsize=14:antialias=true:hinting=true
+URxvt*boldFont: xft:Hasklig Medium:bold:pixelsize=14:antialias=true:hinting=true
+URxvt.letterSpace: -1
 
 ## change default colors
 URxvt*background: #000000
@@ -52,6 +52,6 @@ URxvt*color14: #50FCF8
 URxvt*color15: #F8FCF8
 
 URxvt.perl-ext-common: default,matcher
-URxvt.urlLauncher: chrome
+URxvt.urlLauncher: firefox
 URxvt.matcher.button: 2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]

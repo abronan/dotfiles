@@ -27,7 +27,7 @@ cursor_shape = block
 # modify_other_keys = false
 
 [colors]
-background = rgba(16, 16, 16, 0.9)
+background = rgba(16, 16, 16, 0.8)
 foreground = #e6e6e6
 foreground_bold = #ffffff
 cursor =  #ffaa3e
