@@ -1,6 +1,6 @@
 export LANG=en_US.UTF-8
 
-pulseaudio --start
+setxkbmap -rules evdev -model evdev -layout us -variant altgr-intl
 
 xscreensaver -nosplash &
 
