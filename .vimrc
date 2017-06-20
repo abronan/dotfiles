@@ -46,10 +46,6 @@ call vundle#begin()
   Plugin 'lilydjwg/colorizer'
   Plugin 'zeis/vim-kolor'
 
-  " Go Support
-  "
-  Plugin 'fatih/vim-go'
-
   " Rust Support
   "
   Plugin 'rust-lang/rust.vim'
@@ -62,8 +58,10 @@ call vundle#begin()
   Plugin 'honza/vim-snippets'
 
   " }}}
+
   " vim-scripts repos {{{
   " }}}
+
   " non github repos {{{
   " }}}
 
@@ -109,6 +107,7 @@ filetype plugin indent on
   let mapleader=","
   let maplocalleader=","
 " }}}
+
 " General Keybinds {{{
   " Delete previous word with C-BS
   imap <C-BS> <C-W>
@@ -135,12 +134,14 @@ filetype plugin indent on
   " Increase @revision # by 1
   nmap <silent> <leader>incr /@updated wwwd$"=strftime("%a %d %b %Y") p/@revision $
 " }}}
+
 " {{{ Window movement
   nmap <M-h> :winc h<CR>
   nmap <M-j> :winc j<CR>
   nmap <M-k> :winc k<CR>
   nmap <M-l> :winc l<CR>
 " }}}
+
 " GUI {{{
   if has('gui_running')
     set guicursor+=a:blinkon0       " Cursor doesn't blink
@@ -170,29 +171,26 @@ filetype plugin indent on
     colorscheme jellybeans
   endif
 " }}}
-" Tabstops {{{
-  set tabstop=2
-  set shiftwidth=2
-  set softtabstop=2
-  set autoindent
-  set smartindent
-  set expandtab
-" }}}
+
 " Invisibles {{{
   set listchars=tab:>\ ,eol:<
   nmap <silent> <F5> :set list!<CR>
 " }}}
+
 " Folds {{{
   set foldmethod=marker
   set foldcolumn=1
 " }}}
+
 " Pairings {{{
   set showmatch
 " }}}
+
 " Margins {{{
   set scrolloff=5
   set sidescroll=5
 " }}}
+
 " Search {{{
   set incsearch
   set ignorecase
@@ -200,23 +198,27 @@ filetype plugin indent on
   " Toggle that stupid highlight search
   nmap <silent> ,n :set invhls<CR>:set hls?<CR>
 " }}}
+
 " Backup files {{{
   set nobackup
   set nowb
   set noswapfile
 " }}}
+
 " Completion {{{
   set wildmenu
   set wildmode=longest,full,list
 
   set ofu=syntaxcomplete#Complete
 " }}}
+
 " NERDTree {{{
   map <F3> :NERDTreeToggle<CR>
 
   let NERDTreeChDirMode = 2
   let NERDTreeShowBookmarks = 1
 " }}}
+
 " Git Diff {{{
   map <F9> :GitGutterToggle<CR>
   map <F10> :GitGutterLineHighlightsToggle<CR>
@@ -225,6 +227,7 @@ filetype plugin indent on
   highlight GitGutterDeleteLine guibg=#381c20
   highlight GitGutterChangeDeleteLine guibg=#181818
 " }}}
+
 " {{{ Powerline
   set guifont=Terminus\ for\ Powerline:h16
   let g:Powerline_symbols = 'unicode'
@@ -234,53 +237,39 @@ filetype plugin indent on
   set term=rxvt-256color
   set termencoding=utf-8
 " }}}
-" {{{ Go Configs
-  " format with goimports instead of gofmt
-  let g:go_fmt_command = "goimports"
-  map <F7> :GoLint<CR>
-  map <F8> :GoVet<CR>
-  au FileType go nmap <leader>r <Plug>(go-run)
-  au FileType go nmap <leader>b <Plug>(go-build)
-  au FileType go nmap <leader>t <Plug>(go-test)
-  au FileType go nmap <leader>c <Plug>(go-coverage)
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-  au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-  au FileType go nmap <Leader>s <Plug>(go-implements)
-  au FileType go nmap <Leader>i <Plug>(go-info)
-  au FileType go nmap <Leader>e <Plug>(go-rename)
-" }}}
+
 " {{{ Rust Configs
   let g:rustfmt_autosave = 1
   let g:racer_cmd = "/home/abronan/.cargo/bin/racer"
-  let $RUST_SRC_PATH="/usr/src/rust/src/"
 " }}}
+
 " Wrapping {{{
   set linebreak
   set showbreak=↳\
 " toggle wrapping
   nmap <silent> <F12> :let &wrap = !&wrap<CR>
 " }}}
+
 " 'Bubbling' {{{
   nmap <C-up> [e
   nmap <C-down> ]e
   vmap <C-up> [egv
   vmap <C-down> ]egv
 " }}}
+
 " Pasting {{{
   set paste
   nnoremap p ]p
   nnoremap <c-p> p
 " }}}
+
 " Macros {{{
   " Execute macro "q" with space
   nmap <Space> @q
   " Map @ to + for more comfortable macros on DE kb layout
   nmap + @
 " }}}
+
 " UltiSnips {{{
   let g:UltiSnipsExpandTrigger = "<nop>"
   let g:ulti_expand_or_jump_res = 0
@@ -295,4 +284,16 @@ filetype plugin indent on
   inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
   let g:ycm_key_list_select_completion = ['<TAB>']
   let g:ycm_key_list_previous_completion = ['<S-TAB>']
+" }}}
+
+" YCM {{{
+  let g:ycm_server_python_interpreter = '/usr/bin/python2'
+" }}}
+
+" Tabstops {{{
+  set softtabstop=4
+  set shiftwidth=4
+  set autoindent
+  set smartindent
+  set expandtab
 " }}}

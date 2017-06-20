@@ -72,30 +72,34 @@ local browser      = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "cli", "dev", "web", "file", "other" }
+
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    lain.layout.centerwork,
     awful.layout.suit.tile,
+    awful.layout.suit.max,
+    lain.layout.centerwork,
+    awful.layout.suit.tile,
+    lain.layout.centerwork.horizontal,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
-    --awful.layout.suit.fair.horizontal,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
-    --awful.layout.suit.corner.nw,
-    --awful.layout.suit.corner.ne,
-    --awful.layout.suit.corner.sw,
-    --awful.layout.suit.corner.se,
+    awful.layout.suit.corner.nw,
+    awful.layout.suit.corner.ne,
+    awful.layout.suit.corner.sw,
+    awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
-    --lain.layout.centerwork.horizontal,
-    --lain.layout.termfair,
-    --lain.layout.termfair.center,
+    lain.layout.termfair,
+    lain.layout.termfair.center,
+    awful.layout.suit.floating,
 }
+
 awful.util.taglist_buttons = awful.util.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
@@ -180,7 +184,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
         { "Open terminal", terminal },
         -- other triads can be put here
     },
-		skip_items = { "Avahi", "urxvt", "compton", "ranger" }
+		skip_items = { "Avahi", "urxvt", "compton", "ranger", "Qt4" }
 })
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 -- }}}
