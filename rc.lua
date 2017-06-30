@@ -71,13 +71,14 @@ local gui_editor   = "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "cli", "dev", "web", "file", "other" }
+awful.util.tagnames = { " term ", "dev ", "web ", "file ", "chat ", "Ʃ " }
 
 awful.layout.layouts = {
     lain.layout.centerwork,
     awful.layout.suit.tile,
     awful.layout.suit.max,
     lain.layout.centerwork,
+    lain.layout.termfair.center,
     awful.layout.suit.tile,
     lain.layout.centerwork.horizontal,
     awful.layout.suit.tile.left,
@@ -96,7 +97,6 @@ awful.layout.layouts = {
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
     lain.layout.termfair,
-    lain.layout.termfair.center,
     awful.layout.suit.floating,
 }
 
@@ -184,7 +184,7 @@ awful.util.mymainmenu = freedesktop.menu.build({
         { "Open terminal", terminal },
         -- other triads can be put here
     },
-		skip_items = { "Avahi", "urxvt", "compton", "ranger", "Qt4" }
+    skip_items = { "Avahi", "urxvt", "compton", "ranger", "Qt4", "Desktop Preferences" }
 })
 --menubar.utils.terminal = terminal -- Set the Menubar terminal for applications that require it
 -- }}}
@@ -219,6 +219,12 @@ globalkeys = awful.util.table.join(
     -- Take a screenshot
     -- https://github.com/copycat-killer/dots/blob/master/bin/screenshot
     awful.key({ altkey }, "p", function() os.execute("scrot") end),
+
+    -- Xscreensaver
+    awful.key({ altkey }, "F9", function() os.execute("xscreensaver-command -lock") end),
+
+    -- Suspend
+    awful.key({ altkey, "Control" }, "F9", function() os.execute("xscreensaver-command -lock && systemctl suspend") end),
 
     -- Hotkeys
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -363,27 +369,17 @@ globalkeys = awful.util.table.join(
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+            os.execute(string.format("amixer -c 3 -q sset Speakers 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ altkey }, "Down",
         function ()
-            os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+            os.execute(string.format("amixer -c 3 -q sset Speakers 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ altkey }, "m",
         function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ altkey, "Control" }, "0",
-        function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
+            os.execute(string.format("amixer -c 3 -q set Speakers toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
         end),
 
