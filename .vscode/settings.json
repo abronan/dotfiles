@@ -10,12 +10,12 @@
     "editor.renderIndentGuides": false,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": true,
-    "editor.minimap.renderCharacters": false,
+    "editor.minimap.renderCharacters": true,
     "editor.fontLigatures": true,
     // Updates
     "update.channel": "none",
     // Window
-    "window.zoomLevel": 0.5,
+    "window.zoomLevel": 0,
     "window.restoreFullscreen": false,
     // Workbench
     "workbench.sideBar.location": "left",
@@ -27,9 +27,16 @@
     // Extensions
     "extensions.autoUpdate": true,
     // Rusty Code
-    "rust.actionOnSave": "check",
+    "rust.mode": "rls",
+    "rust.rls": {
+        "useRustfmt": true
+    },
+    "rust.actionOnSave": "clippy",
     "rust.showOutput": false,
-    "rust.forceLegacyMode": true,
+    "rust.rustup": {
+        "toolchain": "nightly-x86_64-unknown-linux-gnu",
+        "nightlyToolchain": "nightly-x86_64-unknown-linux-gnu"
+    },
     // Integrated Terminal
     "terminal.integrated.fontFamily": "Hasklig Medium",
     "terminal.integrated.fontLigatures": true,
@@ -42,5 +49,6 @@
         "statusBar.background": "#1A1A1A",
         "statusBar.noFolderBackground": "#0A0A0D",
         "statusBar.debuggingBackground": "#5f5f5f"
-    }
+    },
+    "window.menuBarVisibility": "toggle"
 }
