@@ -12,6 +12,8 @@
     "editor.minimap.enabled": true,
     "editor.minimap.renderCharacters": true,
     "editor.fontLigatures": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.insertSpaces": true,
     // Updates
     "update.channel": "none",
     // Window
@@ -21,11 +23,13 @@
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": false,
+    "window.menuBarVisibility": "toggle",
     // Telemetry
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     // Extensions
     "extensions.autoUpdate": true,
+    "extensions.ignoreRecommendations": true,
     // Rusty Code
     "rust.mode": "rls",
     "rust.rls": {
@@ -43,12 +47,13 @@
     "terminal.integrated.fontSize": 13,
     // VS icons
     "vsicons.dontShowNewVersionMessage": true,
-    "workbench.colorTheme": "GitHub Bold Theme",
+    "workbench.colorTheme": "Liqube Dark Code",
     "workbench.iconTheme": "vscode-icons",
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.panel.location": "bottom",
     "workbench.colorCustomizations": {
         "statusBar.background": "#1A1A1A",
         "statusBar.noFolderBackground": "#0A0A0D",
         "statusBar.debuggingBackground": "#5f5f5f"
-    },
-    "window.menuBarVisibility": "toggle"
+    }
 }
