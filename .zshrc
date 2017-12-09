@@ -14,6 +14,10 @@ export PATH=$PATH:$CARGO/bin
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export PATH=$PATH:$RUST_SRC_PATH
 
+# Export nightly channel flag for cargo fmt (rustfmt-nightly)
+# See: https://github.com/rust-lang-nursery/rustfmt/issues/2188
+export CFG_RELEASE_CHANNEL=nightly
+
 # Project specific
 export MANTISSA_BIN=/home/abronan/devenv/mantissa/target/debug
 export PATH=$PATH:$MANTISSA_BIN
