@@ -45,6 +45,7 @@ alias curl='noglob curl'
 alias dps='docker ps -a'
 alias cclean='docker rm -f $(docker ps -aq)'
 alias iclean='docker rmi $(docker images -aq)'
+alias idclean='docker rmi $(docker images -f "dangling=true" -q)'
 
 # Zsh
 source ~/.zshresources/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
