@@ -71,11 +71,11 @@ local gui_editor   = "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " term ", "dev ", "web ", "file ", "chat ", "Ʃ " }
+awful.util.tagnames = { " term  ", "dev  ", "web  ", "file  ", "chat  ", "Ʃ  " }
 
 awful.layout.layouts = {
     lain.layout.centerwork,
-    awful.layout.suit.tile,
+    lain.layout.centerwork,
     awful.layout.suit.max,
     lain.layout.centerwork,
     lain.layout.termfair.center,
