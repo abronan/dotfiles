@@ -3,4 +3,7 @@
 rustup update
 rustup run nightly cargo install -f racer
 rustup run nightly cargo install -f rustfmt-nightly
-rustup run nightly cargo install -f clippy
+rustup component add clippy-preview --toolchain=nightly
+rustup component add rls-preview --toolchain nightly
+rustup component add rust-analysis --toolchain nightly
+rustup component add rust-src --toolchain nightly
