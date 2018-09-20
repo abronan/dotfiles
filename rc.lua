@@ -55,10 +55,9 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root" })
+run_once("unclutter -root")
 run_once("autocutsel -fork")
 run_once("autocutsel -selection PRIMARY -fork")
-run_once("wicd-client")
 -- }}}
 
 -- {{{ Variable definitions
@@ -71,7 +70,7 @@ local gui_editor   = "code"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { " term  ", "dev  ", "web  ", "file  ", "chat  ", "Ʃ  " }
+awful.util.tagnames = { " term  ", "dev  ", "web  ", "file  ", "other  ", "Ʃ  " }
 
 awful.layout.layouts = {
     lain.layout.centerwork,
@@ -369,17 +368,17 @@ globalkeys = awful.util.table.join(
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
-            os.execute(string.format("amixer -c 3 -q sset Speakers 1%%+", beautiful.volume.channel))
+            os.execute(string.format("amixer -c 0 -q sset Speakers 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ altkey }, "Down",
         function ()
-            os.execute(string.format("amixer -c 3 -q sset Speakers 1%%-", beautiful.volume.channel))
+            os.execute(string.format("amixer -c 0 -q sset Speakers 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end),
     awful.key({ altkey }, "m",
         function ()
-            os.execute(string.format("amixer -c 3 -q set Speakers toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+            os.execute(string.format("amixer -c 0 -q set Speakers toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
         end),
 

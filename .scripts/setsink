@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pacmd set-default-sink "alsa_output.usb-Creative_Technology_Ltd_Sound_BlasterX_Katana_E23C458E060030EC40-00.analog-stereo"
